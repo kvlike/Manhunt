@@ -1,0 +1,9 @@
+name: Manhunt
+version: ${project.version}
+main: me.kvlike.manhunt.Manhunt
+api-version: 1.16
+authors: [ kvlike ]
+description: Minecraft Manhunt Plugin
+commands:
+  hunter:
+    description: Hunter add/remove command
