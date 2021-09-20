@@ -44,8 +44,13 @@ public class RightClickListener implements Listener {
                         meta.setLodestone(null);
                         meta.setLodestoneTracked(false);
                         clicker.getInventory().getItemInMainHand().setItemMeta(meta);
-                        clicker.setCompassTarget(Manhunt.tpLocationOv);
-                        clicker.sendMessage(ChatColor.RED + "No speedrunners found! Tracking last known location.");
+                        if(!Manhunt.tpLocationOv.equals(null)) {
+                            clicker.setCompassTarget(Manhunt.tpLocationOv);
+                            clicker.sendMessage(ChatColor.RED + "No speedrunners found! Tracking last known location.");
+                        }
+                        else{
+                            clicker.sendMessage(ChatColor.RED + "No speedrunners found!");
+                        }
                     }
                     else {
                         meta.setLodestone(null);
@@ -57,10 +62,15 @@ public class RightClickListener implements Listener {
                 }
                 else if(world.equals(World.Environment.NETHER)){
                     if(target == null){
-                        meta.setLodestone(Manhunt.tpLocationNt);
-                        meta.setLodestoneTracked(false);
-                        clicker.getInventory().getItemInMainHand().setItemMeta(meta);
-                        clicker.sendMessage(ChatColor.RED + "No speedrunners found! Tracking last known location.");
+                        if(!Manhunt.tpLocationNt.equals(null)) {
+                            meta.setLodestone(Manhunt.tpLocationNt);
+                            meta.setLodestoneTracked(false);
+                            clicker.getInventory().getItemInMainHand().setItemMeta(meta);
+                            clicker.sendMessage(ChatColor.RED + "No speedrunners found! Tracking last known location.");
+                        }
+                        else{
+                            clicker.sendMessage(ChatColor.RED + "No speedrunners found!");
+                        }
                     }
                     else {
                         meta.setLodestone(target.getLocation());
